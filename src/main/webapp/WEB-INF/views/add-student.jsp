@@ -3,6 +3,8 @@
 <html>
 <head>
     <title>Student Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/StudentCrud_war/UrlToReachResourcesFolder/css/app-style-sheet.css">
 </head>
 <body>
     <h1 align="center">Add Student</h1>
@@ -23,7 +25,7 @@
             <form:input path="country"/>
         </p>
         <p>
-            <input type="submit" value="Save">
+            <input type="submit" value="Save" class="btn btn-success">
         </p>
     </div>
     </form:form>

@@ -1,0 +1,10 @@
+
+body {
+    font-size: 20px;
+    font-family: Monaco, ui-sans-serif;
+    background-image: url("/StudentCrud_war/UrlToReachResourcesFolder/images/background.jpg");
+}
+
+h1 {
+    color: red;
+}
