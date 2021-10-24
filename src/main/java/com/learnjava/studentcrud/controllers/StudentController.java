@@ -51,4 +51,10 @@ public class StudentController {
         model.addAttribute("studentDTO", studentService.getStudentById(id));
         return "add-student";
     }
+
+    @GetMapping("/deleteStudent")
+    public String deleteStudent(@RequestParam("userId") int id) {
+        studentService.deleteStudentById(id);
+        return "redirect:/showStudents";
+    }
 }

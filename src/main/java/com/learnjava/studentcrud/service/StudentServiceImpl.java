@@ -46,4 +46,9 @@ public class StudentServiceImpl implements StudentService{
                 .id(studentDTO.getId())
                 .build());
     }
+
+    @Override
+    public void deleteStudentById(int id) {
+        studentDAO.deleteStudentById(id);
+    }
 }

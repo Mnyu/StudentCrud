@@ -43,4 +43,10 @@ public class StudentDAOImpl implements StudentDAO {
         Object[] sqlParams = {student.getName(), student.getMobile(), student.getCountry(), student.getId()};
         jdbcTemplate.update(sql, sqlParams);
     }
+
+    @Override
+    public void deleteStudentById(int id) {
+        String sql = "DELETE FROM STUDENTS WHERE ID = ?";
+        jdbcTemplate.update(sql, id);
+    }
 }
