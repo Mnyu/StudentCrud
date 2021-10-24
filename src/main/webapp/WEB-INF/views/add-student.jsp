@@ -9,6 +9,7 @@
     <hr/>
     <form:form action="save-student" method="POST" modelAttribute="studentDTO">
     <div align="center">
+        <form:hidden path="id"/>
         <p>
             <label>Name : </label>
             <form:input path="name"/>
@@ -22,7 +23,7 @@
             <form:input path="country"/>
         </p>
         <p>
-            <input type="submit" value="Add">
+            <input type="submit" value="Save">
         </p>
     </div>
     </form:form>

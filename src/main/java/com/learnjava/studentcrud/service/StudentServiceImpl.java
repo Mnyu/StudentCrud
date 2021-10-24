@@ -31,4 +31,19 @@ public class StudentServiceImpl implements StudentService{
                 .country(studentDTO.getCountry())
                 .build());
     }
+
+    @Override
+    public Student getStudentById(int id) {
+        return studentDAO.getStudentById(id);
+    }
+
+    @Override
+    public void updateStudent(StudentDTO studentDTO) {
+        studentDAO.updateStudent(Student.builder()
+                .name(studentDTO.getName())
+                .mobile(studentDTO.getMobile())
+                .country(studentDTO.getCountry())
+                .id(studentDTO.getId())
+                .build());
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class StudentDTO {
+    private int id;
     private String name;
     private Long mobile;
     private String country;

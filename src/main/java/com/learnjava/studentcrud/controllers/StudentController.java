@@ -1,6 +1,5 @@
 package com.learnjava.studentcrud.controllers;
 
-import com.learnjava.studentcrud.dao.StudentDAO;
 import com.learnjava.studentcrud.domain.Student;
 import com.learnjava.studentcrud.dto.StudentDTO;
 import com.learnjava.studentcrud.service.StudentService;
@@ -9,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,7 +38,17 @@ public class StudentController {
 
     @PostMapping("/save-student")
     public String showStudentSavedPage(StudentDTO studentDTO) {
-        studentService.saveStudent(studentDTO);
+        if(studentDTO.getId() != 0) {
+            studentService.updateStudent(studentDTO);
+        } else {
+            studentService.saveStudent(studentDTO);
+        }
         return "redirect:/showStudents";
+    }
+
+    @GetMapping("/updateStudent")
+    public String updateStudent(@RequestParam("userId") int id,  Model model) {
+        model.addAttribute("studentDTO", studentService.getStudentById(id));
+        return "add-student";
     }
 }

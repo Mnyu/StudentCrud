@@ -10,4 +10,8 @@ public interface StudentService {
     List<Student> getAllStudents();
 
     void saveStudent(StudentDTO studentDTO);
+
+    Student getStudentById(int id);
+
+    void updateStudent(StudentDTO studentDTO);
 }

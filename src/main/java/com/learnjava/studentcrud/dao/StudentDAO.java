@@ -9,4 +9,8 @@ public interface StudentDAO {
     List<Student> getAllStudents();
 
     void saveStudent(Student student);
+
+    Student getStudentById(int id);
+
+    void updateStudent(Student student);
 }

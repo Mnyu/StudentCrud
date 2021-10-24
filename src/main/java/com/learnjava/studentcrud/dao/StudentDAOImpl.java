@@ -30,4 +30,17 @@ public class StudentDAOImpl implements StudentDAO {
         Object[] sqlParams = {student.getName(), student.getMobile(), student.getCountry()};
         jdbcTemplate.update(sql, sqlParams);
     }
+
+    @Override
+    public Student getStudentById(int id) {
+        String sql = "SELECT * FROM STUDENTS WHERE ID = ?";
+        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
+    }
+
+    @Override
+    public void updateStudent(Student student) {
+        String sql = "UPDATE STUDENTS SET NAME = ?, MOBILE = ?, COUNTRY = ? WHERE ID = ?";
+        Object[] sqlParams = {student.getName(), student.getMobile(), student.getCountry(), student.getId()};
+        jdbcTemplate.update(sql, sqlParams);
+    }
 }
