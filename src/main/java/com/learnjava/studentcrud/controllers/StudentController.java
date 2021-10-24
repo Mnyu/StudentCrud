@@ -3,6 +3,7 @@ package com.learnjava.studentcrud.controllers;
 import com.learnjava.studentcrud.dao.StudentDAO;
 import com.learnjava.studentcrud.domain.Student;
 import com.learnjava.studentcrud.dto.StudentDTO;
+import com.learnjava.studentcrud.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +15,16 @@ import java.util.List;
 @Controller
 public class StudentController {
 
-    private StudentDAO studentDAO;
+    private StudentService studentService;
 
     @Autowired
-    public StudentController(StudentDAO studentDAO) {
-        this.studentDAO = studentDAO;
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     @GetMapping("/showStudents")
     public String showStudentsList(Model model) {
-        List<Student> students = studentDAO.getAllStudents();
+        List<Student> students = studentService.getAllStudents();
 
         model.addAttribute("students", students);
         return "students-list";
@@ -37,11 +38,7 @@ public class StudentController {
 
     @PostMapping("/save-student")
     public String showStudentSavedPage(StudentDTO studentDTO) {
-        studentDAO.saveStudent(Student.builder()
-                        .name(studentDTO.getName())
-                        .mobile(studentDTO.getMobile())
-                        .country(studentDTO.getCountry())
-                        .build());
+        studentService.saveStudent(studentDTO);
         return "redirect:/showStudents";
     }
 }
