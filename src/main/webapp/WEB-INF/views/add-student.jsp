@@ -7,7 +7,7 @@
 <body>
     <h1 align="center">Add Student</h1>
     <hr/>
-    <form:form action="save-student" method="GET" modelAttribute="studentDTO">
+    <form:form action="save-student" method="POST" modelAttribute="studentDTO">
     <div align="center">
         <p>
             <label>Name : </label>

@@ -8,6 +8,9 @@
     <h1 align="center">Students</h1>
     <hr/>
     <div align="center">
+        <form action="/StudentCrud_war/addStudent">
+            <input type="submit" value="Add">
+        </form>
         <table border="1">
             <thead>
                 <tr>
